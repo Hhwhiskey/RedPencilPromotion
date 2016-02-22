@@ -93,6 +93,19 @@ public class RedPencilPromotionTest {
         assertFalse(result);
     }
 
+    @Test
+    public void priceIncreaseRemovesPromoStatus() {
+        //Arrange
+
+        //Act
+        boolean result = promo.priceIncreaseRemovesPromo();
+        
+        //Assert
+        assertTrue(result);
+    }
+
+
+
 
 
 
