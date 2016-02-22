@@ -3,13 +3,26 @@ package com.kevinhodges;
 public class RedPencilPromotion {
 
     private int mDaysOfStablePrice;
-    private final int mPromoLength;
+    private int mPromoLength;
     private double mOriginalPrice;
     private double mNewPrice;
 
     public static void main(String[] args) {
     }
 
+    // Default constructor
+    public RedPencilPromotion() {
+    }
+
+    /**
+     * Constructor to determine if there is currently a Red Pencil Promotion
+     *
+     * @param daysOfStablePrice days the price has been stable
+     * @param promoLength days the promo has been ongoing
+     * @param originalPrice original price
+     * @param newPrice new price
+     *
+     **/
     public RedPencilPromotion(int daysOfStablePrice, int promoLength, double originalPrice, double newPrice) {
         mDaysOfStablePrice = daysOfStablePrice;
         mPromoLength = promoLength;
@@ -21,7 +34,7 @@ public class RedPencilPromotion {
     // Check to see if there is currently a RPP
     public boolean isThereARedPencilPromotion() {
 
-        return isPromoInsideEligiblePeriod(mDaysOfStablePrice)
+        return isPriceStableForAtLeast30Days(mDaysOfStablePrice)
                 && isPromoLengthLessThan30Days(mPromoLength)
                 && isPriceReductionBetween5and30Percent(mOriginalPrice, mNewPrice)
                 && !isPriceIncreased(mOriginalPrice, mNewPrice);
@@ -30,7 +43,7 @@ public class RedPencilPromotion {
 
     // Determine if promo is inside the eligible period
     // If price has been stable for 30 or more days, return true
-    public boolean isPromoInsideEligiblePeriod(int daysOfStablePrice) {
+    public boolean isPriceStableForAtLeast30Days(int daysOfStablePrice) {
         if (daysOfStablePrice >= 30) {
             return true;
         }

@@ -24,25 +24,28 @@ public class RedPencilPromotionTest {
 
     @Before
     public void setUp() {
+        promo = new RedPencilPromotion();
     }
 
     @Test
-    public void promoInsideEligiblePeriod() {
+    public void priceHasBeenStableForAtLeast30Days() {
         //Arrange
+        //Passing in 30 days should return true
 
         //Act
-        boolean result = promo.isPromoInsideEligiblePeriod(30);
+        boolean result = promo.isPriceStableForAtLeast30Days(30);
 
         //Assert
         assertTrue(result);
     }
 
     @Test
-    public void promoOutsideEligiblePeriod() {
+    public void priceHasNotBeenStableForAtLeast30Days() {
         //Arrange
+        //Passing in 20 days should return false
 
         //Act
-        boolean result = promo.isPromoInsideEligiblePeriod(20);
+        boolean result = promo.isPriceStableForAtLeast30Days(20);
 
         //Assert
         assertFalse(result);
@@ -51,6 +54,7 @@ public class RedPencilPromotionTest {
     @Test
     public void saleIsWithin5and30Percent() {
         //Arrange
+        //Passing in 100.00 and 75.00 ($) should return true
 
         //Act
         boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 75.00);
@@ -62,6 +66,7 @@ public class RedPencilPromotionTest {
     @Test
     public void saleIsNotWithin5and30Percent() {
         //Arrange
+        //Passing in 100.00 and 25.00 ($) should return false
 
         //Act
         boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 25.00);
@@ -73,6 +78,7 @@ public class RedPencilPromotionTest {
     @Test
     public void promoLengthLessThan30Days() {
         //Arrange
+        //Passing in 25 days should return true
 
         //Act
         boolean result = promo.isPromoLengthLessThan30Days(25);
@@ -84,6 +90,7 @@ public class RedPencilPromotionTest {
     @Test
     public void promoLengthLongerThan30Days() {
         //Arrange
+        //Passing in 50 days should return false
 
         //Act
         boolean result = promo.isPromoLengthLessThan30Days(50);
@@ -95,6 +102,7 @@ public class RedPencilPromotionTest {
     @Test
     public void priceIncreaseRemovesPromoStatus() {
         //Arrange
+        //Passing in 10.00 and 15.00 ($) should return true
 
         //Act
         boolean result = promo.isPriceIncreased(10.00, 15.00);
@@ -106,6 +114,7 @@ public class RedPencilPromotionTest {
     @Test
     public void priceReductionRemovesPromoStatus() {
         //Arrange
+        //Passing in 20.00 and 10.00 ($) should return false
 
         //Act
         boolean result = promo.isPriceIncreased(20.00, 10.00);
@@ -117,7 +126,14 @@ public class RedPencilPromotionTest {
     @Test
     public void thereIsARedPencilPromotion() {
         //Arrange
-        promo = new RedPencilPromotion(30, 15, 15.00, 12.00);
+        //This will create a RedPencilPromotion object that agrees with a current Red Pencil Promotion
+        //and should return true
+        int daysOfStablePrice = 30;
+        int daysOfPromoLength = 15;
+        double startingPrice = 15.00;
+        double newPrice = 12.00;
+
+        promo = new RedPencilPromotion(daysOfStablePrice, daysOfPromoLength, startingPrice, newPrice);
 
         //Act
         boolean result = promo.isThereARedPencilPromotion();
@@ -129,7 +145,14 @@ public class RedPencilPromotionTest {
     @Test
     public void thereIsNotARedPencilPromotion() {
         //Arrange
-        promo = new RedPencilPromotion(20, 32, 10.00, 12.00);
+        //This will create a RedPencilPromotion object that disagrees with a current Red Pencil Promotion
+        //and should return false
+        int daysOfStablePrice = 20;
+        int daysOfPromoLength = 32;
+        double startingPrice = 10.00;
+        double newPrice = 12.00;
+
+        promo = new RedPencilPromotion(daysOfStablePrice, daysOfPromoLength, startingPrice, newPrice);
 
         //Act
         boolean result = promo.isThereARedPencilPromotion();
