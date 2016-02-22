@@ -87,7 +87,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.isPromoLengthLessThan30Days(25);
+        boolean result = promo.isPromoLengthLessThan30Days(50);
 
         //Assert
         assertFalse(result);
