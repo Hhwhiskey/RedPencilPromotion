@@ -15,11 +15,11 @@ public class RedPencilPromotion {
     }
 
     // Method to determine if the sale is appropriate for the Red Pencil Promotion
-    public static boolean isPriceReductionBetween5and30Percent(double originalPrice, double reducedPrice) {
+    public static boolean isPriceReductionBetween5and30Percent(double originalPrice, double newPrice) {
 
         // Subtract the reduced price from the original price, then divide that by the original price
         // Muliply this by -100 to get the positive percentage of the sale
-        double percentageOfSale = (((reducedPrice - originalPrice) / originalPrice) * -100);
+        double percentageOfSale = (((newPrice - originalPrice) / originalPrice) * -100);
 
         // Check to see if the sale falls between this eligible range
         if (percentageOfSale >= 5.00 && percentageOfSale <= 30.00) {
