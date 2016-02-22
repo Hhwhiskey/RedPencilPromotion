@@ -2,8 +2,31 @@ package com.kevinhodges;
 
 public class RedPencilPromotion {
 
+    private int mDaysOfStablePrice;
+    private final int mPromoLength;
+    private double mOriginalPrice;
+    private double mNewPrice;
+
     public static void main(String[] args) {
     }
+
+    public RedPencilPromotion(int daysOfStablePrice, int promoLength, double originalPrice, double newPrice) {
+        mDaysOfStablePrice = daysOfStablePrice;
+        mPromoLength = promoLength;
+        mOriginalPrice = originalPrice;
+        mNewPrice = newPrice;
+    }
+
+
+    // Check to see if there is currently a RPP
+    public boolean isThereARedPencilPromotion() {
+
+        return isPromoInsideEligiblePeriod(mDaysOfStablePrice)
+                && isPromoLengthLessThan30Days(mPromoLength)
+                && isPriceReductionBetween5and30Percent(mOriginalPrice, mNewPrice)
+                && !isPriceIncreased(mOriginalPrice, mNewPrice);
+    }
+
 
     // Determine if promo is inside the eligible period
     // If price has been stable for 30 or more days, return true
