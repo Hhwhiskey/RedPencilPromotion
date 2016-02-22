@@ -4,6 +4,7 @@ import com.kevinhodges.RedPencilPromotion;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /*
@@ -28,7 +29,7 @@ public class RedPencilPromotionTest {
     }
 
     @Test
-    public void promoEligible() {
+    public void promoInsideEligiblePeriod() {
         //Arrange
 
         //Act
@@ -37,6 +38,20 @@ public class RedPencilPromotionTest {
         //Assert
         assertTrue(result);
     }
+
+    @Test
+    public void promoOutsideEligiblePeriod() {
+        //Arrange
+
+        //Act
+        boolean result = promo.getPromoEligibility(50);
+
+        //Assert
+        assertFalse(result);
+    }
+
+
+
 }
 
 
