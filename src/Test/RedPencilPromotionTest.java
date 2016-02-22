@@ -33,7 +33,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.getPromoEligibility(30);
+        boolean result = promo.isPromoInsideEligiblePeriod(30);
 
         //Assert
         assertTrue(result);
@@ -44,12 +44,24 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.getPromoEligibility(20);
+        boolean result = promo.isPromoInsideEligiblePeriod(20);
 
         //Assert
         assertFalse(result);
     }
 
+    @Test
+    public void saleIsWithin5and30Percent() {
+        //Arrange
+
+        //Act
+        boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 75.00);
+
+        //Assert
+        assertTrue(result);
+    }
+
+   
 
 
 }
