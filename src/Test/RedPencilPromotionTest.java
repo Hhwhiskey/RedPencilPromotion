@@ -44,7 +44,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.getPromoEligibility(50);
+        boolean result = promo.getPromoEligibility(20);
 
         //Assert
         assertFalse(result);
