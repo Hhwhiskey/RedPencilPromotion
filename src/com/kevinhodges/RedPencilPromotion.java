@@ -3,7 +3,6 @@ package com.kevinhodges;
 public class RedPencilPromotion {
 
     public static void main(String[] args) {
-
     }
 
     // Determine if promo is inside the eligible period
@@ -32,6 +31,15 @@ public class RedPencilPromotion {
     // Method to determine if the promo has extended past the max length of 30 days
     public static boolean isPromoLengthLessThan30Days(int promoDays) {
         if (promoDays <= 30) {
+            return true;
+        }
+        return false;
+    }
+
+    // Method to determine if promo price increases at any point
+    public static boolean isPriceIncreased(double originalPrice, double newPrice) {
+
+        if (newPrice > originalPrice) {
             return true;
         }
         return false;
