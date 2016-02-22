@@ -115,15 +115,27 @@ public class RedPencilPromotionTest {
     }
 
     @Test
-    public void isThereARedPencilPromotion() {
+    public void thereIsARedPencilPromotion() {
         //Arrange
-        promo = new RedPencilPromotion(25, 15, 15.00, 12.00);
+        promo = new RedPencilPromotion(30, 15, 15.00, 12.00);
 
         //Act
         boolean result = promo.isThereARedPencilPromotion();
 
         //Assert
         assertTrue(result);
+    }
+
+    @Test
+    public void thereIsNotARedPencilPromotion() {
+        //Arrange
+        promo = new RedPencilPromotion(30, 15, 15.00, 12.00);
+
+        //Act
+        boolean result = promo.isThereARedPencilPromotion();
+
+        //Assert
+        assertFalse(result);
     }
 
 
