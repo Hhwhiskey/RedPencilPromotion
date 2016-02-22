@@ -129,7 +129,7 @@ public class RedPencilPromotionTest {
     @Test
     public void thereIsNotARedPencilPromotion() {
         //Arrange
-        promo = new RedPencilPromotion(30, 15, 15.00, 12.00);
+        promo = new RedPencilPromotion(20, 32, 10.00, 12.00);
 
         //Act
         boolean result = promo.isThereARedPencilPromotion();
