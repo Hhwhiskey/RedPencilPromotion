@@ -3,7 +3,7 @@ package Test;
 import com.kevinhodges.RedPencilPromotion;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertTrue;
 
 /*
@@ -32,7 +32,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.getPromoEligibility();
+        boolean result = promo.getPromoEligibility(30);
 
         //Assert
         assertTrue(result);
