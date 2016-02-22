@@ -28,4 +28,11 @@ public class RedPencilPromotion {
         }
         return false;
     }
+
+    public static boolean isPromoLengthLessThan30Days(int promoDays) {
+        if (promoDays <= 30) {
+            return true;
+        }
+        return false;
+    }
 }
