@@ -61,7 +61,18 @@ public class RedPencilPromotionTest {
         assertTrue(result);
     }
 
-   
+    @Test
+    public void saleIsNotWithin5and30Percent() {
+        //Arrange
+
+        //Act
+        boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 90.00);
+
+        //Assert
+        assertFalse(result);
+    }
+
+
 
 
 }
