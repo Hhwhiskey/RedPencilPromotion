@@ -29,6 +29,7 @@ public class RedPencilPromotion {
         return false;
     }
 
+    // Method to determine if the promo has extended past the max length of 30 days
     public static boolean isPromoLengthLessThan30Days(int promoDays) {
         if (promoDays <= 30) {
             return true;
