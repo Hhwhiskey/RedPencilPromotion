@@ -66,7 +66,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 90.00);
+        boolean result = promo.isPriceReductionBetween5and30Percent(100.00, 25.00);
 
         //Assert
         assertFalse(result);
