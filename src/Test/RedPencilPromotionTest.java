@@ -109,7 +109,7 @@ public class RedPencilPromotionTest {
         //Arrange
 
         //Act
-        boolean result = promo.isPriceIncreased(10.00, 20.00);
+        boolean result = promo.isPriceIncreased(20.00, 10.00);
 
         //Assert
         assertFalse(result);
