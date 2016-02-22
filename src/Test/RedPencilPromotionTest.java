@@ -9,7 +9,6 @@ import static org.junit.Assert.assertTrue;
 
 /*
     These parameters outline the requirements for the Red Pencil Promotion
-
     1)  Starts only after 30 days of stable price
     2)  Starts when price is reduced by at least 5% but no more than 30%
     3)  Lasts up to 30 days max, no minimum time specified
@@ -73,19 +72,23 @@ public class RedPencilPromotionTest {
     }
 
     @Test
-    public void promoLengthNoMoreThan30Days() {
+    public void promoLengthLessThan30Days() {
         //Arrange
 
         //Act
-        boolean result = promo.isPromoLengthLessThan30Days(15);
+        boolean result = promo.isPromoLengthLessThan30Days(25);
 
         //Assert
         assertTrue(result);
     }
 
+    
+
+
+
+
+
 
 
 
 }
-
-
