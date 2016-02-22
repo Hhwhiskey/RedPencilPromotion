@@ -104,6 +104,17 @@ public class RedPencilPromotionTest {
         assertTrue(result);
     }
 
+    @Test
+    public void priceReductionRemovesPromoStatus() {
+        //Arrange
+
+        //Act
+        boolean result = promo.isPriceIncreased(10.00, 20.00);
+
+        //Assert
+        assertFalse(result);
+    }
+
 
 
 
